@@ -19,51 +19,22 @@
 
     .container {
       display: flex;
-      justify-content: space-around;
       flex-wrap: wrap;
-    }
-
-    .year-column {
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      width: 15%;
-      margin: 10px;
-      min-width: 180px;
-      transition: opacity 0.3s;
-    }
-
-    .year-column h2 {
-      text-align: center;
-      background-color: #e0e0e0;
-      margin: 0;
-      padding: 10px;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      font-size: 18px;
-    }
-
-    .cuatrimestre {
-      border-top: 3px solid #ccc;
-      padding: 10px;
-    }
-
-    .cuatrimestre h3 {
-      text-align: center;
-      margin: 10px 0;
-      font-size: 16px;
+      gap: 10px;
+      justify-content: center;
     }
 
     .materia {
       background-color: white;
       border: 2px solid #aaa;
       border-radius: 8px;
-      margin: 8px 0;
-      padding: 12px;
+      margin: 6px;
+      padding: 10px;
       text-align: center;
       font-size: 14px;
       cursor: pointer;
       transition: all 0.3s;
+      min-width: 180px;
     }
 
     .espera {
@@ -89,55 +60,55 @@
 
   <script>
     const materias = [
-      {
-        id: "algebra",
-        nombre: "Álgebra y Geometría Analítica",
-        regulariza: [],
-        aprueba: []
-      },
-      {
-        id: "quimica_general",
-        nombre: "Química General",
-        regulariza: [],
-        aprueba: []
-      },
-      {
-        id: "calculo",
-        nombre: "Cálculo Diferencial e Integral",
-        regulariza: ["algebra"],
-        aprueba: []
-      },
-      {
-        id: "quimica_inorganica",
-        nombre: "Química Inorgánica",
-        regulariza: ["quimica_general"],
-        aprueba: []
-      },
-      {
-        id: "biologia",
-        nombre: "Biología General y Celular",
-        regulariza: ["quimica_general"],
-        aprueba: []
-      },
-      {
-        id: "mecanica",
-        nombre: "Mecánica, Calor y Termodinámica",
-        regulariza: ["quimica_inorganica", "calculo"],
-        aprueba: ["algebra", "quimica_general"]
-      },
-      {
-        id: "organica1",
-        nombre: "Química Orgánica I",
-        regulariza: ["quimica_inorganica"],
-        aprueba: ["algebra", "quimica_general"]
-      },
-      {
-        id: "morfologia",
-        nombre: "Morfología",
-        regulariza: ["biologia"],
-        aprueba: []
-      }
-      // Podés seguir agregando más materias aquí siguiendo este formato
+      // PRIMER AÑO
+      { id: "algebra", nombre: "Álgebra y Geometría Analítica", regulariza: [], aprueba: [] },
+      { id: "quimica_general", nombre: "Química General", regulariza: [], aprueba: [] },
+      { id: "calculo", nombre: "Cálculo Diferencial e Integral", regulariza: ["algebra"], aprueba: [] },
+      { id: "quimica_inorganica", nombre: "Química Inorgánica", regulariza: ["quimica_general"], aprueba: [] },
+      { id: "biologia", nombre: "Biología General y Celular", regulariza: ["quimica_general"], aprueba: [] },
+
+      // SEGUNDO AÑO
+      { id: "mecanica", nombre: "Mecánica, Calor y Termodinámica", regulariza: ["quimica_inorganica", "calculo"], aprueba: ["algebra", "quimica_general"] },
+      { id: "organica1", nombre: "Química Orgánica I", regulariza: ["quimica_inorganica"], aprueba: ["algebra", "quimica_general"] },
+      { id: "morfologia", nombre: "Morfología", regulariza: ["biologia"], aprueba: [] },
+      { id: "electricidad", nombre: "Electricidad, Magnetismo, Óptica y Sonido", regulariza: ["mecanica"], aprueba: ["algebra"] },
+      { id: "organica2", nombre: "Química Orgánica II", regulariza: ["organica1"], aprueba: ["quimica_inorganica"] },
+      { id: "analitica", nombre: "Química Analítica", regulariza: ["calculo"], aprueba: ["algebra", "quimica_inorganica"] },
+      { id: "traduccion", nombre: "Prueba de Traducción", regulariza: [], aprueba: [] },
+
+      // TERCER AÑO
+      { id: "biologica1", nombre: "Química Biológica I", regulariza: ["mecanica", "analitica", "organica2"], aprueba: ["organica1"] },
+      { id: "fisica_bio", nombre: "Química Física Biológica", regulariza: ["analitica", "organica2"], aprueba: ["mecanica"] },
+      { id: "bioestadistica", nombre: "Bioestadística", regulariza: ["analitica"], aprueba: ["calculo"] },
+      { id: "biologica2", nombre: "Química Biológica II", regulariza: ["biologica1", "fisica_bio", "organica2"], aprueba: [] },
+      { id: "genetica", nombre: "Genética y Biología Molecular", regulariza: ["biologica1", "organica2"], aprueba: [] },
+      { id: "instrumental", nombre: "Química Analítica Instrumental", regulariza: ["bioestadistica", "fisica_bio", "organica2"], aprueba: ["analitica"] },
+      { id: "software", nombre: "Prueba de Manejo de Software", regulariza: [], aprueba: [] },
+
+      // CUARTO AÑO
+      { id: "virologia", nombre: "Virología Clínica", regulariza: ["genetica", "biologica2", "bioestadistica"], aprueba: [] },
+      { id: "microbiologia", nombre: "Microbiología General", regulariza: ["genetica", "biologica1", "biologica2"], aprueba: [] },
+      { id: "fisiologia", nombre: "Fisiología Humana", regulariza: ["biologica2", "morfologia"], aprueba: [] },
+      { id: "farmacologia", nombre: "Farmacología", regulariza: ["biologica2", "organica2"], aprueba: [] },
+      { id: "bromatologia", nombre: "Bromatología y Nutrición", regulariza: ["microbiologia", "instrumental"], aprueba: ["biologica1"] },
+      { id: "fisiopatologia", nombre: "Fisiopatología", regulariza: ["fisiologia", "microbiologia", "fisica_bio", "biologica2"], aprueba: [] },
+      { id: "inmunologia", nombre: "Inmunología Clínica", regulariza: ["microbiologia", "fisiologia", "bioestadistica", "genetica"], aprueba: [] },
+      { id: "parasitologia", nombre: "Parasitología Humana", regulariza: ["microbiologia", "fisiologia", "bioestadistica", "genetica"], aprueba: [] },
+
+      // QUINTO AÑO
+      { id: "bacteriologia", nombre: "Bacteriología y Micología Clínica", regulariza: ["fisiopatologia", "inmunologia"], aprueba: ["microbiologia", "genetica"] },
+      { id: "quimica_clinica", nombre: "Química Clínica", regulariza: ["fisiopatologia"], aprueba: ["fisiologia", "bioestadistica", "biologica2", "genetica", "instrumental"] },
+      { id: "toxicologia", nombre: "Toxicología y Química Legal", regulariza: ["fisiopatologia"], aprueba: ["organica2", "instrumental", "farmacologia"] },
+      { id: "etica", nombre: "Ética Profesional", regulariza: [], aprueba: [] },
+      { id: "hematologia", nombre: "Hematología Clínica", regulariza: ["bioestadistica", "fisiopatologia", "inmunologia"], aprueba: ["genetica"] },
+      { id: "endocrinologia", nombre: "Endocrinología y Monitoreo de Drogas", regulariza: ["fisiopatologia", "inmunologia"], aprueba: ["instrumental", "farmacologia", "genetica"] },
+      { id: "optativa1", nombre: "Optativa I", regulariza: [], aprueba: [] },
+      { id: "gestion", nombre: "Gestión de Laboratorio", regulariza: ["quimica_clinica"], aprueba: ["bioestadistica", "instrumental"] },
+      { id: "epistemologia", nombre: "Epistemología e Investigación", regulariza: ["toxicologia", "bromatologia"], aprueba: ["fisiopatologia"] },
+
+      // SEXTO AÑO
+      { id: "hospitalaria", nombre: "Práctica Hospitalaria", regulariza: ["hematologia", "bacteriologia", "endocrinologia", "gestion", "virologia", "inmunologia", "parasitologia", "quimica_clinica"], aprueba: [] },
+      { id: "optativa2", nombre: "Práctica Optativa", regulariza: ["hospitalaria"], aprueba: ["hospitalaria"] }
     ];
 
     const container = document.getElementById("malla");
@@ -192,4 +163,3 @@
   </script>
 </body>
 </html>
-
