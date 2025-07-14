@@ -1,1 +1,66 @@
+body {
+  font-family: serif;
+  padding: 30px;
+  background-color:#ff00ff;
+}
 
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.malla-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px;
+}
+
+.columna-año {
+  background-color: #fff9f5;
+  border-radius: 8px;
+  padding: 10px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.columna-año h2 {
+  text-align: center;
+  font-size: 18px;
+  margin: 0;
+}
+
+.cuatrimestre {
+  background-color: #e3b8d3;
+  border: 1px solid #94356f;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.cuatrimestre h3 {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.materia {
+  padding: 6px;
+  margin: 5px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  text-align: center;
+  background-color: #fff9f5;
+}
+
+.materia.regularizada {
+  filter: brightness(1.1);
+}
+
+.materia.aprobada {
+  filter: brightness(0.7);
+  text-decoration: line-through;
+  opacity: 0.7;
+}
