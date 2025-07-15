@@ -6,66 +6,84 @@
   <title>Malla Curricular - Bioquímica</title>
   <style>
     body {
-  font-family: serif;
-  background-image: url('lll.png'); /* o el nombre exacto si lo cambiaste */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: #1c0312; /* opcional: mejora el contraste del texto si el fondo es oscuro */
+      font-family: serif;
+      background-image: url('lll.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #1c0312;
+      margin: 0;
+      padding: 20px;
     }
 
     h1 {
       text-align: center;
       margin-bottom: 40px;
+      color: #1c0312;
     }
 
     .container {
       display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
       justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     .year-column {
       background-color: #E5C7D6;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      width: 220px;
-      margin: 0 10px;
-      flex-shrink: 0;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      width: 180px;
+      padding: 10px;
     }
 
     .year-column h2 {
       text-align: center;
-      color: #fff;
       background-color: #821D59;
+      color: white;
       margin: 0;
       padding: 10px;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
+      border-radius: 12px;
       font-size: 18px;
     }
 
+    .progress-bar {
+      height: 8px;
+      background-color: #F7EEED;
+      margin: 8px 0;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background-color: #821D59;
+      transition: width 0.3s;
+    }
+
     .cuatrimestre {
-      border-top: 3px solid #F7EEED;
+      background-color: #F7EEED;
+      border-radius: 16px;
       padding: 10px;
+      margin-top: 10px;
     }
 
     .cuatrimestre h3 {
       text-align: center;
-      margin: 10px 0;
-      font-size: 16px;
+      margin-bottom: 10px;
+      font-size: 15px;
+      color: #1c0312;
     }
 
     .materia {
       background-color: #FFFFFF;
       border: 2px solid #F7EEED;
-      border-radius: 8px;
-      margin: 8px 0;
+      border-radius: 10px;
+      margin: 6px 0;
       padding: 10px;
       text-align: center;
-      font-size: 14px;
+      font-size: 15px;
       cursor: pointer;
       transition: all 0.3s;
     }
@@ -90,38 +108,10 @@
 <body>
   <h1>Malla Curricular - Bioquímica</h1>
   <div class="container" id="malla">
-    <!-- Columnas por año con cuatrimestres -->
-    <div class="year-column" data-anio="1">
-      <h2>1º Año</h2>
-      <div class="cuatrimestre" data-cuatrimestre="1"></div>
-      <div class="cuatrimestre" data-cuatrimestre="2"></div>
-    </div>
-    <div class="year-column" data-anio="2">
-      <h2>2º Año</h2>
-      <div class="cuatrimestre" data-cuatrimestre="1"></div>
-      <div class="cuatrimestre" data-cuatrimestre="2"></div>
-    </div>
-    <div class="year-column" data-anio="3">
-      <h2>3º Año</h2>
-      <div class="cuatrimestre" data-cuatrimestre="1"></div>
-      <div class="cuatrimestre" data-cuatrimestre="2"></div>
-    </div>
-    <div class="year-column" data-anio="4">
-      <h2>4º Año</h2>
-      <div class="cuatrimestre" data-cuatrimestre="1"></div>
-      <div class="cuatrimestre" data-cuatrimestre="2"></div>
-    </div>
-    <div class="year-column" data-anio="5">
-      <h2>5º Año</h2>
-      <div class="cuatrimestre" data-cuatrimestre="1"></div>
-      <div class="cuatrimestre" data-cuatrimestre="2"></div>
-    </div>
-    <div class="year-column" data-anio="6">
-      <h2>6º Año</h2>
-      <div class="cuatrimestre" data-cuatrimestre="1"></div>
-      <div class="cuatrimestre" data-cuatrimestre="2"></div>
-    </div>
+    <!-- columnas por año -->
   </div>
+</body>
+</html>
 
   <script>
     const materias = [
