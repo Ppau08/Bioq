@@ -6,8 +6,8 @@
   <title>Malla Curricular - Bioquímica</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f7f7f7;
+      font-family: serif;
+      background-color: #fff;
       padding: 20px;
       margin: 0;
     }
@@ -35,7 +35,7 @@
 
     .year-column h2 {
       text-align: center;
-      background-color: #e0e0e0;
+      background-color: #661e47;
       margin: 0;
       padding: 10px;
       border-top-left-radius: 10px;
@@ -44,7 +44,7 @@
     }
 
     .cuatrimestre {
-      border-top: 3px solid #ccc;
+      border-top: 3px solid #fff;
       padding: 10px;
     }
 
@@ -55,8 +55,8 @@
     }
 
     .materia {
-      background-color: white;
-      border: 2px solid #aaa;
+      background-color: #fff;
+      border: 2px solid #fff;
       border-radius: 8px;
       margin: 8px 0;
       padding: 10px;
@@ -67,17 +67,17 @@
     }
 
     .espera {
-      background-color: #fff3cd;
+      background-color: #bfbdbd;
       cursor: default;
       pointer-events: none;
     }
 
     .materia.estado-1 {
-      background-color: #d1e7dd;
+      background-color: #bfa1b2;
     }
 
     .materia.estado-2 {
-      background-color: #a5c2b3;
+      background-color: #8a667a;
       text-decoration: line-through;
       color: #444;
     }
@@ -142,7 +142,28 @@
       { id: "genetica", nombre: "Genética y Biología Molecular", regulariza: ["biologica1", "organica2"], aprueba: ["traduccion"], anio: 3, cuatri: 2 },
       { id: "instrumental", nombre: "Química Analítica Instrumental", regulariza: ["bioestadistica", "fisica_bio", "organica2"], aprueba: ["analitica", "traduccion"], anio: 3, cuatri: 2 },
       { id: "software", nombre: "Prueba de Manejo de Software", regulariza: [], aprueba: ["traduccion"], anio: 3, cuatri: 2 },
-      // Años 4–6 omitidos aquí por espacio; seguir mismo patrón para completarlos
+
+      { id: "virologia", nombre: "Virología Clínica", regulariza: ["genetica", "biologica2", "bioestadistica"], aprueba: [], anio: 4, cuatri: 1 },
+    { id: "microbiologia", nombre: "Microbiología General", regulariza: ["genetica", "biologica1", "biologica2"], aprueba: [], anio: 4, cuatri: 1 },
+    { id: "fisiologia", nombre: "Fisiología Humana", regulariza: ["biologica2", "morfologia"], aprueba: [], anio: 4, cuatri: 1 },
+    { id: "farmacologia", nombre: "Farmacología", regulariza: ["biologica2", "organica2"], aprueba: [], anio: 4, cuatri: 1 },
+    { id: "bromatologia", nombre: "Bromatología y Nutrición", regulariza: ["microbiologia", "instrumental"], aprueba: ["biologica1"], anio: 4, cuatri: 2 },
+    { id: "fisiopatologia", nombre: "Fisiopatología", regulariza: ["fisiologia", "microbiologia", "fisica_bio", "biologica2"], aprueba: [], anio: 4, cuatri: 2 },
+    { id: "inmunologia", nombre: "Inmunología Clínica", regulariza: ["microbiologia", "fisiologia", "bioestadistica", "genetica"], aprueba: [], anio: 4, cuatri: 2 },
+    { id: "parasitologia", nombre: "Parasitología Humana", regulariza: ["microbiologia", "fisiologia", "bioestadistica", "genetica"], aprueba: [], anio: 4, cuatri: 2 },
+
+    { id: "bacteriologia", nombre: "Bacteriología y Micología Clínica", regulariza: ["fisiopatologia", "inmunologia"], aprueba: ["microbiologia", "genetica"], anio: 5, cuatri: 1 },
+    { id: "quimica_clinica", nombre: "Química Clínica", regulariza: ["fisiopatologia"], aprueba: ["fisiologia", "bioestadistica", "biologica2", "genetica", "instrumental"], anio: 5, cuatri: 1 },
+    { id: "toxicologia", nombre: "Toxicología y Química Legal", regulariza: ["fisiopatologia"], aprueba: ["organica2", "instrumental", "farmacologia"], anio: 5, cuatri: 1 },
+    { id: "etica", nombre: "Ética Profesional", regulariza: [], aprueba: [], anio: 5, cuatri: 1 },
+    { id: "hematologia", nombre: "Hematología Clínica", regulariza: ["bioestadistica", "fisiopatologia", "inmunologia"], aprueba: ["genetica"], anio: 5, cuatri: 2 },
+    { id: "endocrinologia", nombre: "Endocrinología y Monitoreo de Drogas", regulariza: ["fisiopatologia", "inmunologia"], aprueba: ["instrumental", "farmacologia", "genetica"], anio: 5, cuatri: 2 },
+    { id: "optativa1", nombre: "Optativa I", regulariza: [], aprueba: [], anio: 5, cuatri: 2 },
+    { id: "gestion", nombre: "Gestión de Laboratorio", regulariza: ["quimica_clinica"], aprueba: ["bioestadistica", "instrumental"], anio: 5, cuatri: 2 },
+    { id: "epistemologia", nombre: "Epistemología e Investigación", regulariza: ["toxicologia", "bromatologia"], aprueba: ["fisiopatologia"], anio: 5, cuatri: 2 },
+
+    { id: "hospitalaria", nombre: "Práctica Hospitalaria", regulariza: ["hematologia", "bacteriologia", "endocrinologia", "gestion", "virologia", "inmunologia", "parasitologia", "quimica_clinica"], aprueba: [], anio: 6, cuatri: 1 },
+    { id: "optativa2", nombre: "Práctica Optativa", regulariza: ["hospitalaria"], aprueba: ["hospitalaria"], anio: 6, cuatri: 2 }
     ];
 
     const container = document.getElementById("malla");
