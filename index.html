@@ -179,7 +179,7 @@
       div.textContent = m.nombre;
 
       const target = document.querySelector(
-        `.year-column[data-anio='${m.anio}'] .cuatrimestre[data-cuatrimestre='${m.cuatri}']`
+        .year-column[data-anio='${m.anio}'] .cuatrimestre[data-cuatrimestre='${m.cuatri}']
       );
       if (target) target.appendChild(div);
     });
